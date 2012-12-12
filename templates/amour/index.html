@@ -1,0 +1,29 @@
+{% if authorizeUrl %}
+    <a href="{{ authorizeUrl }}">Begin Authorize</a>
+
+{% else %}
+     <link href="/medias/css/index.css" rel="stylesheet" type="text/css"/>
+    <h1>Dear {{ usersShow.name }}, welcome to the AI project! </h1><hr/>
+    <div id="introduce" class="style">
+        <h3>用户信息</h3>
+    <p><img src="{{ usersShow.avatar_large }}" alt="我的头像"/></p>
+    <ul>
+    <li>我的名字：{{ usersShow.name }}</li>
+    <li>我的ID：{{ usersShow.id }}</li>
+    <li>我的粉丝：{{ usersShow.followers_count }}</li>
+    <li>我的关注：{{ usersShow.friends_count }}</li>
+    </ul>
+    </div>
+    <div id="project" class="style">
+        <div id="training">
+    <h3>抽奖微博识别训练</h3>
+    <a href="./training">开始批量训练（未完成）</a> <br>
+    <a href="./single">开始单个训练</a> <br>
+        </div>
+        <div id="other">
+            <h3>测试</h3>
+    <a href="./extend.html">识别</a><br>
+    <a href="./analysis.html">分析</a><br>
+        </div>
+    </div>
+{% endif %}

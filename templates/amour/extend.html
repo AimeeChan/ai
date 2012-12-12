@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Follow&Transmit</title>
+    <link href="/medias/css/index.css" rel="stylesheet" type="text/css"/>
+    <link href="/medias/css/single.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<a href=".">Back To Index</a>
+<fieldset>
+    <legend>识别----Identify</legend>
+{% if text %}
+
+<p>
+    这是抽奖微博的概率 = {{ probability }} <br>
+    <textarea cols="85" rows="7" readonly="readonly">{{ text }}</textarea><br>
+
+</p>
+{% endif %}
+    <form action="extend" method="POST"> {% csrf_token %}
+        <h4>请输入一个微博</h4>
+        <textarea cols="85" rows="7" name="string"></textarea><br>
+        <input type="submit" name="提交" value="提交">
+    </form>
+
+    </fieldset>
+</body>
+</html>

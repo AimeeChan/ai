@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Training</title>
+    <link href="/medias/css/training.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<a href=".">Back To Index</a>
+<fieldset>
+    <legend>批量训练----Training</legend>
+<ul>
+    <form action="training" method="POST"> {% csrf_token %}
+        <input type="submit" name="训练" value="训练">
+        {% for state in statusesList %}
+            <p>
+                <li>当前的hit probability = {{ state.probability }}</li>
+                【微博内容】: {{ state.text }}<br/>
+                <input type="radio" name="train{{ forloop.counter }}" value="pass" checked="checked">不训练
+                <input type="radio" name="train{{ forloop.counter }}" value="hit">这是抽奖微博
+                <input type="radio" name="train{{ forloop.counter }}" value="mis">这不是抽奖微博
+                <input type="hidden" name="text{{ forloop.counter }}" value="{{ state.text }}">
+        </p>
+        {% endfor %}
+        <input type="submit" name="训练" value="训练">
+    </form>
+
+
+</ul>
+</fieldset>
+<a href=".">Back To Index</a>
+</body>
+</html>

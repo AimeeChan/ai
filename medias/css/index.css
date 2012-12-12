@@ -1,0 +1,33 @@
+body{
+    background-color: #f1f1f1;
+    /*width: 80%;*/
+    position: absolute;
+    left: 20%;
+    right: 20%;
+}
+#introduce{
+}
+h1{
+    text-align: center;
+}
+img{
+    float: left;
+
+}
+ul{
+    float: left;
+    overflow: hidden;
+}
+h3{
+}
+#project{
+    padding-bottom: 40px;
+    padding-top:40px;
+}
+.style{
+    background-color: #fbf7e4;
+    float: left;
+    width: 60%;
+    padding-left: 15%;
+    padding-right: 15%;
+}

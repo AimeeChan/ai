@@ -1,0 +1,16 @@
+body{
+    background-color: #f0f0f0;
+    width: 80%;
+    position: absolute;
+    left: 10%;
+    padding-bottom: 20px;
+}
+ul{
+    padding:20px 10px 10px 20px;
+}
+fieldset{
+    background-color: #fbf7e4;
+    border:white dashed 1px;
+    margin: 20px;
+}
+

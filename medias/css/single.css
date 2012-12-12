@@ -1,0 +1,12 @@
+fieldset{
+    background-color: #fbf7e4;
+    border:white dashed 1px;
+    margin: 20px;
+}
+textarea{
+    background-color: #fbf7e4;
+    border: none;
+}
+h4{
+    text-align: center;
+}

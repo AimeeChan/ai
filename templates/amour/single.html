@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Single Traning</title>
+    <link href="/medias/css/index.css" rel="stylesheet" type="text/css"/>
+    <link href="/medias/css/single.css" rel="stylesheet" type="text/css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<a href=".">Back To Index</a>
+<fieldset>
+    <legend>单个训练----Single Training</legend>
+{{ message }}
+
+{% if text %}
+
+<p>
+    这是抽奖微博的概率 = {{ probability }} <br>
+    <textarea cols="60" rows="7" readonly="readonly">{{ text }}</textarea><br>
+    <form actioin="single" method="POST"> {% csrf_token %}
+        <input type="radio" name="train" value="hit">这是抽奖微博
+        <input type="radio" name="train" value="mis">这不是抽奖微博
+        <input type="hidden" name="text" value="{{ text }}">
+        <input type="submit" value="训练">
+    </form>
+</p>
+（若不训练该微博，可以输入新微博继续单个训练）
+{% endif %}
+
+    <form action="single" method="POST"> {% csrf_token %}
+        <h4>请输入一个微博</h4>
+        <textarea cols="85" rows="7" name="string"></textarea><br>
+        <input type="submit" name="提交" value="训练">
+    </form>
+</fieldset>
+</body>
+</html>

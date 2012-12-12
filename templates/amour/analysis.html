@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analysis</title>
+    <link href="/medias/css/training.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<a href=".">Back To Index</a>
+<fieldset>
+    <legend>分析----Analysis</legend>
+
+{% if postFlag %}
+    <p>
+        <ul>
+        <li>测试微博数(totalNum): {{ totalCounter}}</li>
+        <li>识别出抽奖微博数(probability >= 0.9, hitNum): {{ hitCounter }}</li>
+        <li>识别出非抽奖微博数(probability < 0.9, misNum): {{ misCounter }}</li>
+        <li>实际的抽奖微博数(realHitNum): {{ realHitCounter }}</li>
+        <li>实际的非抽奖微博(realMisNum): {{realMisCounter }}</li>
+        <li>误差(= |hitNum-realHitNum+misNum-realMisNum|/totalNum): {{ error}}</li>
+        </ul>
+    </p>
+{% else %}
+    <!--<ul>
+        {{ postFlag }}
+        <ul>
+            <li>测试微博数(totalNum): {{ totalCounter}}</li>
+            <li>识别出抽奖微博数(probability >= 0.9, hitNum): {{ hitCounter }}</li>
+            <li>识别出非抽奖微博数(probability < 0.9, misNum): {{ misCounter }}</li>
+            <li>实际的抽奖微博数(realHitNum): {{ realHitCounter }}</li>
+            <li>实际的非抽奖微博(realMisNum): {{realMisCounter }}</li>
+            <li>误差(= |hitNum-realHitNum+misNum-realMisNum|/totalNum): {{ error}}</li>
+        </ul>-->
+        <form action="analysis" method="POST" name="analysis"> {% csrf_token %}
+            <input type="submit" name="人工识别" value="人工识别">
+            {% for state in statusesList %}
+            <p>
+            <li>当前的hit probability = {{ state.probability }}</li>
+            【微博内容】: {{ state.text }}<br/>
+            <!--<input type="radio" name="analysis{{ forloop.counter }}" value="pass" checked="checked">请选择-->
+            <input type="radio" name="analysis{{ forloop.counter }}" value="hit">这是抽奖微博
+            <input type="radio" name="analysis{{ forloop.counter }}" value="mis">这不是抽奖微博
+            <!--<input type="hidden" name="analysis{{ forloop.counter }}" value="{{ state.text }}">-->
+            </p>
+            {% endfor %}
+            <input type="submit" name="人工识别" value="人工识别">
+        </form>
+    </ul>
+</fieldset>
+{% endif %}
+<a href=".">Back To Index</a>
+</body>
+</html>
